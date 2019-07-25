@@ -1,4 +1,4 @@
-class DvdsController < ApplicationController
+class DvdsController < OpenReadController
   before_action :set_dvd, only: [:show, :update, :destroy]
 
   # GET /dvds
@@ -15,7 +15,7 @@ class DvdsController < ApplicationController
 
   # POST /dvds
   def create
-    @dvd = Dvd.new(dvd_params)
+    @dvd = current_user.dvds.build(dvd_params)
 
     if @dvd.save
       render json: @dvd, status: :created, location: @dvd

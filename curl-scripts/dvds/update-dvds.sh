@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-curl --include --request PATCH "https://wdi-library-api.herokuapp.com/books/${ID}" \
+curl --include --request PATCH "http://localhost:4741/${ID}" \
   --header "Content-type: application/json" \
   --data '{
     "dvd": {
