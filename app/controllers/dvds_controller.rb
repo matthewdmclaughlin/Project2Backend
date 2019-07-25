@@ -1,4 +1,4 @@
-class DvdsController < OpenReadController
+  class DvdsController < OpenReadController
   before_action :set_dvd, only: [:show, :update, :destroy]
 
   # GET /dvds
@@ -38,14 +38,15 @@ class DvdsController < OpenReadController
     @dvd.destroy
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dvd
-      @dvd = current_user.Dvd.find(params[:id])
-    end
+    private
 
-    # Only allow a trusted parameter "white list" through.
-    def dvd_params
-      params.require(:dvd).permit(:title, :year, :starring, :synopsis, :user_id)
-    end
-end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dvd
+    @dvd = current_user.Dvd.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def dvd_params
+    params.require(:dvd).permit(:title, :year, :starring, :synopsis, :user_id)
+  end
+  end
